@@ -1,0 +1,10 @@
+# ignore the following files
+.settings/*
+Debug/*
+targetConfigs/*
+.ccsproject
+.cproject
+.project
+msp432p4111.cmd
+startup_msp432p4111_ccs.c
+system_msp432p4111.c
