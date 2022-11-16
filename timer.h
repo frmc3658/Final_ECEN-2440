@@ -1,12 +1,10 @@
 /*
- * app.h
+ * timer.h
  *
- *  Created on: Nov 14, 2022
- *      Author: fjmcd
  */
 
-#ifndef APP_H_
-#define APP_H_
+#ifndef TIMER_H_
+#define TIMER_H_
 
 //***************************************************************
 // included files
@@ -14,14 +12,19 @@
 /* System includes */
 
 /* Texas Instruments includes */
+#include "msp.h"
 
 /* Developer includes */
 #include "gpio.h"
-#include "timer.h"
+#include "scheduler.h"
+
 
 //***************************************************************
 // defined macros
 //**************************************************************/
+#define TICKS                   0xFFFF              // max value for 16-bit CCR[1]
+#define TIMER_A0_CCI_HIGH_CB    0X8                 // callback value for CCI high
+#define TIMER_A0_CCI_LOW_CB     0x4                 // callback value for CCI low
 
 
 //***************************************************************
@@ -37,6 +40,9 @@
 //***************************************************************
 // function prototypes
 //**************************************************************/
-void app_peripheral_open(void);
+void timer_open(void);
+void start_timer(void);
+void stop_timer(void);
+void config_timer(void);
 
-#endif /* APP_H_ */
+#endif /* TIMER_H_ */
