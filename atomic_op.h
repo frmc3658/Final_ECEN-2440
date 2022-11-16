@@ -1,28 +1,42 @@
 /*
- * scheduler.h
+ * brd_config.h
  *
  */
 
-#ifndef SCHEDULER_H_
-#define SCHEDULER_H_
+#ifndef ATOMIC_OP_H_
+#define ATOMIC_OP_H_
 
 //***************************************************************
 // included files
 //**************************************************************/
 /* System includes */
-#include <atomic_op.h>
 #include <stdint.h>
 
 /* Texas Instruments includes */
-#include "msp.h"
 
 /* Developer includes */
-
+#include "msp.h"
 
 //***************************************************************
 // defined macros
 //**************************************************************/
-#define CLEAR_SCHEDULED_EVENTS 0x00     // default value of scheduled_events static variable
+/* Macros for atomic operations */
+#define DECLARE_ATOMIC_IRQ_STATE        uint32_t irqState
+/* ASSUMES DECLARE_ATOMIC_IRQ_STATE FIRST */
+#define ENTER_ATOMIC()                  irqState = enter_atomic()
+#define EXIT_ATOMIC()                   exit_atomic(irqState)
+
+
+/* pre-processor directive to convientiently create atomic operations */
+#define MAKE_ATOMIC(operation)      \
+    {                               \
+        DECLARE_ATOMIC_IRQ_STATE;   \
+        ENTER_ATOMIC();             \
+        {                           \
+            operation               \
+        }                           \
+        EXIT_ATOMIC();              \
+    }                               \
 
 
 //***************************************************************
@@ -38,9 +52,7 @@
 //***************************************************************
 // function prototypes
 //**************************************************************/
-void scheduler_open(void);
-void add_scheduled_event(uint32_t event);
-void remove_scheduled_event(uint32_t event);
-uint32_t get_scheduled_events(void);
+uint32_t enter_atomic(void);
+void exit_atomic(uint32_t irqState);
 
-#endif /* SCHEDULER_H_ */
+#endif /* ATOMIC_OP_H_ */

@@ -1,18 +1,16 @@
 /*
- * scheduler.c
+ * atomic_op.c
  *
  */
 
 //***************************************************************
 // include header
 //**************************************************************/
-#include "scheduler.h"
-
+#include "atomic_op.h"
 
 //***************************************************************
 // static/private data
 //**************************************************************/
-static volatile uint32_t scheduled_events;
 
 
 //***************************************************************
@@ -23,43 +21,20 @@ static volatile uint32_t scheduled_events;
 //***************************************************************
 // function definitions
 //**************************************************************/
-void scheduler_open(void)
+// stores the state of the PRIMASK and disables
+// interrupts to enter an atomic operations
+uint32_t enter_atomic(void)
 {
-    // clear scheduler
-    MAKE_ATOMIC
-    (
-        scheduled_events = CLEAR_SCHEDULED_EVENTS;
-    );
+    uint32_t irqState = __get_interrupt_state();
+    __disable_interrupts();
+    return irqState;
 }
 
-void add_scheduled_event(uint32_t event)
+// re-enables interrupts to exit an atomic operation
+void exit_atomic(uint32_t irqState)
 {
-    MAKE_ATOMIC
-    (
-        scheduled_events |= event;
-    );
-
-}
-
-void remove_scheduled_event(uint32_t event)
-{
-    MAKE_ATOMIC
-    (
-        scheduled_events &= ~event;
-    );
-
-}
-
-
-// return events_scheduled
-uint32_t get_scheduled_events(void)
-{
-    uint32_t events;
-
-    MAKE_ATOMIC
-    (
-        events = scheduled_events;
-    );
-
-    return events;
+    if(!irqState)
+    {
+        __enable_interrupts();
+    }
 }

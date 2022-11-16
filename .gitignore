@@ -8,3 +8,4 @@ targetConfigs/*
 msp432p4111.cmd
 startup_msp432p4111_ccs.c
 system_msp432p4111.c
+/Debug/
