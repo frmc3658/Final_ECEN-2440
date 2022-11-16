@@ -13,9 +13,10 @@
 #include <stdint.h>
 
 /* Texas Instruments includes */
+#include "msp.h"
 
 /* Developer includes */
-#include "msp.h"
+
 
 //***************************************************************
 // defined macros
