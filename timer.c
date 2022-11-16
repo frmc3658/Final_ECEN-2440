@@ -111,7 +111,7 @@ void TA0_N_IRQHandler(void)
     }
     else
     {
-        add_scheduled_event(TIMER_A0_CCI_LOW_CB)
+        add_scheduled_event(TIMER_A0_CCI_LOW_CB);
     }
 
     // restore counter and CCTL state
