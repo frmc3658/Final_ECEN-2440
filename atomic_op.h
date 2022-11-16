@@ -1,5 +1,5 @@
 /*
- * brd_config.h
+ * atomic_op.h
  *
  */
 
