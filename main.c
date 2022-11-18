@@ -26,8 +26,9 @@ void main(void)
 	        // remove event
 	        remove_scheduled_event(TIMER_A0_CCI_HIGH_CB);
 
-	        // drive LEDs high
-	        drive_leds();
+	        // turn off LEDs
+	        turn_off_leds();
+
 	    }
 
 	    // if timer CCI low callback event has been scheduled ...
@@ -36,8 +37,9 @@ void main(void)
 	        // remove event
 	        remove_scheduled_event(TIMER_A0_CCI_LOW_CB);
 
-	        // turn off LEDs
-	        turn_off_leds();
+	        // drive LEDs high
+	        drive_leds();
+
 	    }
 	}
 }

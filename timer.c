@@ -37,7 +37,7 @@ void timer_open(void)
     start_timer();
 
     // enable NVIC for TA0.1
-    __NVIC_GetEnableIRQ(TA0_N_IRQn);
+    __NVIC_EnableIRQ(TA0_N_IRQn);
 }
 
 // start timer peripheral
