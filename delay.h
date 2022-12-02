@@ -1,24 +1,23 @@
 /*
- * app.h
+ * delay.h
  *
- *  Created on: Nov 14, 2022
+ *  Created on: Dec 2, 2022
  *      Author: fjmcd
  */
 
-#ifndef APP_H_
-#define APP_H_
+#ifndef DELAY_H_
+#define DELAY_H_
 
 //***************************************************************
 // included files
 //**************************************************************/
 /* System includes */
+#include <stdint.h>
 
 /* Texas Instruments includes */
 
 /* Developer includes */
-#include "gpio.h"
-#include "timer.h"
-#include "delay.h"
+
 
 //***************************************************************
 // defined macros
@@ -38,8 +37,7 @@
 //***************************************************************
 // function prototypes
 //**************************************************************/
-void app_peripheral_open(void);
-void drive_leds(void);
-void turn_off_leds(void);
+void delay(uint32_t delay);
 
-#endif /* APP_H_ */
+
+#endif /* DELAY_H_ */

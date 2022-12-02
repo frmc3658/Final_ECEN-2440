@@ -1,45 +1,32 @@
 /*
- * app.h
+ * delay.c
  *
- *  Created on: Nov 14, 2022
- *      Author: fjmcd
  */
 
-#ifndef APP_H_
-#define APP_H_
 
 //***************************************************************
-// included files
+// include header
 //**************************************************************/
-/* System includes */
-
-/* Texas Instruments includes */
-
-/* Developer includes */
-#include "gpio.h"
-#include "timer.h"
 #include "delay.h"
 
+
 //***************************************************************
-// defined macros
+// static/private data
 //**************************************************************/
 
 
 //***************************************************************
-// enums
+// static/private functions
 //**************************************************************/
 
 
 //***************************************************************
-// structs
+// function definitions
 //**************************************************************/
+void delay(uint32_t delay)
+{
+    volatile uint32_t i;
 
-
-//***************************************************************
-// function prototypes
-//**************************************************************/
-void app_peripheral_open(void);
-void drive_leds(void);
-void turn_off_leds(void);
-
-#endif /* APP_H_ */
+    // DELAY STATE
+    for(i = delay; i > 0; i--);
+}

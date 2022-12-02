@@ -16,14 +16,19 @@
 
 /* Developer includes */
 
-
 //***************************************************************
 // defined macros
 //**************************************************************/
 /* GPIO pins [P2] */
-#define RED         0x00
-#define GREEN       0x01
-#define BLUE        0x02
+#define OB_RED          BIT0
+#define OB_GREEN        BIT1
+#define OB_BLUE         BIT2
+#define EX_RED          BIT7;
+#define EX_WHITE        BIT5;
+/* GPIO pins [P3] */
+#define EX_BLUE         BIT0;
+
+/* GPIO Callbacks */
 
 
 //***************************************************************
@@ -42,7 +47,5 @@
 void gpio_open(void);
 void config_timer_gpio(void);
 void config_gpio_led(void);
-void drive_leds(void);
-void turn_off_leds(void);
 
 #endif /* GPIO_H_ */

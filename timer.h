@@ -22,9 +22,7 @@
 //***************************************************************
 // defined macros
 //**************************************************************/
-#define TICKS                   0xFFFF              // max value for 16-bit CCR[1]
-#define TIMER_A0_CCI_HIGH_CB    0X8                 // callback value for CCI high
-#define TIMER_A0_CCI_LOW_CB     0x4                 // callback value for CCI low
+#define TICKS                   0xFFFF      // max value for 16-bit CCR[1]
 
 
 //***************************************************************

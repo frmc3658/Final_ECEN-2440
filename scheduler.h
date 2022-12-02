@@ -22,8 +22,12 @@
 //***************************************************************
 // defined macros
 //**************************************************************/
+/* Event masks */
 #define CLEAR_SCHEDULED_EVENTS 0x00     // default value of scheduled_events static variable
-
+/* Callbacks */
+#define TIMER_A0_CCI_HIGH_CB    0X8                 // callback value for CCI high
+#define TIMER_A0_CCI_LOW_CB     0x4                 // callback value for CCI low
+#define GPIO_EXTERNAL_LED_CB    0x2
 
 //***************************************************************
 // enums
