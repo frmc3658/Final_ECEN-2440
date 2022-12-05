@@ -25,12 +25,6 @@
 // open the gpio peripheral
 void gpio_open(void)
 {
-    // clear P2 & P3 registers
-    //P2->OUT &= ~0X08;
-    //P3->OUT &= ~0X08;
-    //P2->DIR &= ~0X08;
-    //P3->DIR &= ~0X08;
-
     config_gpio_led();
     config_timer_gpio();
 }
