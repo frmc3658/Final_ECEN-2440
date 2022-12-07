@@ -1,0 +1,15 @@
+%FSTAX23Y23*%
+%MOIN*%
+%SFA1B1*%
+
+%IPPOS*%
+%ADD37C,0.001000*%
+%LNnightlight-1*%
+%LPD*%
+G54D37*
+X0Y0D02*
+X02205D01*
+Y0173*
+X0*
+Y0*
+M02*
