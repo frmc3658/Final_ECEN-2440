@@ -1,4 +1,5 @@
 # ignore the following files/folders
+"git nightlight.zip"
 .launches/*
 .settings/*
 Debug/*
