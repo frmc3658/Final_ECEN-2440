@@ -1,4 +1,5 @@
-# ignore the following files
+# ignore the following files/folders
+.launches/*
 .settings/*
 Debug/*
 targetConfigs/*
