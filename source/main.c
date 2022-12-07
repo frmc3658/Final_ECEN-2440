@@ -40,11 +40,5 @@ void main(void)
 	        // drive LEDs high
 	        drive_leds();
 	    }
-
-	    //
-	    if(GPIO_EXTERNAL_LED_CB & get_scheduled_events())
-	    {
-	        //
-	    }
 	}
 }
