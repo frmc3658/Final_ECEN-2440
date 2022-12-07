@@ -22,6 +22,14 @@
 //***************************************************************
 // function definitions
 //**************************************************************/
+/***************************************************************************//**
+ * @brief
+ *   Open TIMER_A0.
+ *
+ * @details
+ *   Configures the timer and enables TIMER_A0 in the NVIC.
+ *
+ ******************************************************************************/
 void timer_open(void)
 {
     // disable NVIC for TA0.1
@@ -40,7 +48,14 @@ void timer_open(void)
     __NVIC_EnableIRQ(TA0_N_IRQn);
 }
 
-// start timer peripheral
+
+/***************************************************************************//**
+ * @brief
+ *   Start TIMER_A0.
+ *
+ * @details
+ *   Starts the timer in continuous mode.
+ ******************************************************************************/
 void start_timer(void)
 {
     // set TA0 mode control: continuous mode
@@ -48,7 +63,13 @@ void start_timer(void)
 }
 
 
-// stop timer peripheral
+/***************************************************************************//**
+ * @brief
+ *   Stop TIMER_A0.
+ *
+ * @details
+ *   Sets the mode control to stop in the CTL register to stop the timer.
+ ******************************************************************************/
 void stop_timer(void)
 {
     // set MC to halt/stop mode
@@ -56,7 +77,13 @@ void stop_timer(void)
 }
 
 
-// configure timer peripheral
+/***************************************************************************//**
+ * @brief
+ *   Configure TIMER_A0.
+ *
+ * @details
+ *   Configures the clock and interrupts.
+ ******************************************************************************/
 void config_timer(void)
 {
     // clear R register
@@ -94,6 +121,14 @@ void config_timer(void)
 //***************************************************************
 // interrupt handlers
 //**************************************************************/
+/***************************************************************************//**
+ * @brief
+ *   IRQ handler for TIMER_A0.
+ *
+ * @details
+ *   Adds a callback event to the scheduler based on the state of the capture
+ *   control interrupt flag.
+ ******************************************************************************/
 void TA0_N_IRQHandler(void)
 {
     // lower timer and capture/compare interrupt flags

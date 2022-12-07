@@ -9,6 +9,13 @@
 #include "main.h"
 
 
+/***************************************************************************//**
+ * @brief
+ *   Driver code for the application layer.
+ *
+ * @details
+ *   Drives LEDs based on which events are scheduled.
+ ******************************************************************************/
 void main(void)
 {
     // stop watchdog timer

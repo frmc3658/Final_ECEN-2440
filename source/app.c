@@ -22,7 +22,13 @@
 //***************************************************************
 // function definitions
 //**************************************************************/
-// open application specific peripherals
+/***************************************************************************//**
+ * @brief
+ *   Open application specific peripherals and scheduler.
+ *
+ * @details
+ *   Configures GPIO for LEDs, configure TIMER_A0, and open the scheduler.
+ ******************************************************************************/
 void app_peripheral_open(void)
 {
     gpio_open();
@@ -30,7 +36,14 @@ void app_peripheral_open(void)
     scheduler_open();
 }
 
-// drive P2 LEDs high
+
+/***************************************************************************//**
+ * @brief
+ *   Drivers onboard and external LEDs
+ *
+ * @details
+ *   Drives onboard LEDS high and alternates external LEDs
+ ******************************************************************************/
 void drive_leds(void)
 {
     // drive LEDs high
@@ -50,7 +63,13 @@ void drive_leds(void)
 }
 
 
-// turn off P2 LEDs
+/***************************************************************************//**
+ * @brief
+ *   Turns LEDs off.
+ *
+ * @details
+ *   Drive onboard and external LEDs low to turn them off.
+ ******************************************************************************/
 void turn_off_leds(void)
 {
     // drive LEDs low

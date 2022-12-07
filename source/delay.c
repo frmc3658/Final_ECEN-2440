@@ -23,10 +23,19 @@
 //***************************************************************
 // function definitions
 //**************************************************************/
+/***************************************************************************//**
+ * @brief
+ *   Creates a crude delay.
+ *
+ * @details
+ *   Uses a for loop in order to create a crude delay
+ *
+ * @param[in] delay
+ *   number of cycles to delay
+ ******************************************************************************/
 void delay(uint32_t delay)
 {
     volatile uint32_t i;
 
-    // DELAY STATE
     for(i = delay; i > 0; i--);
 }

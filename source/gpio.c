@@ -22,7 +22,13 @@
 //***************************************************************
 // function definitions
 //**************************************************************/
-// open the gpio peripheral
+/***************************************************************************//**
+ * @brief
+ *   Open the GPIO peripherals.
+ *
+ * @details
+ *   Configures LEDs and TIMER_A0.
+ ******************************************************************************/
 void gpio_open(void)
 {
     config_gpio_led();
@@ -30,7 +36,14 @@ void gpio_open(void)
 }
 
 
-// configure timer gpio
+/***************************************************************************//**
+ * @brief
+ *   Configure TIMER_A0 GPIO.
+ *
+ * @details
+ *   Configure P2.4 for primary functionality (TIMER_A0) and configure
+ *   pullup resistor.
+ ******************************************************************************/
 void config_timer_gpio(void)
 {
     // selecting primary functionality on P2.4 for TA0.1 (TRM 12.4.8)
@@ -45,7 +58,14 @@ void config_timer_gpio(void)
 }
 
 
-// configure P2 & P3 LEDs for GPIO output
+/***************************************************************************//**
+ * @brief
+ *   Configure onboard and external LEDs.
+ *
+ * @details
+ *   Sets LEDs as output; selects GPIO functionality for P2.5, P2.7, & P3.0;
+ *   and sets drive strength to high.
+ ******************************************************************************/
 void config_gpio_led(void)
 {
     // EXTERNAL LEDS
@@ -57,7 +77,7 @@ void config_gpio_led(void)
     P2->DIR |= EX_WHITE;
     P3->DIR |= EX_BLUE;
 
-    // select GPIO functionality for P2.5, P2.7, & P3.0
+    // select GPIO functionality for P2.5
     P2->SEL0 &= ~EX_RED;
     P2->SEL1 &= ~EX_RED;
 
